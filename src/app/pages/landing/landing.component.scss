@@ -1,3 +1,50 @@
-ion-content {
-    --background: linear-gradient(180deg, #2155CD 0%, rgba(10, 161, 221, 0.82) 63.54%, rgba(121, 218, 232, 0.12) 100%);
+.bottom-image {
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+}
+.center-image {
+    position: absolute;
+    bottom: 20%;
+    right: 0;
+    z-index: -1;
+}
+.top-image {
+    position: absolute;
+    top: -6;
+    z-index: -1;
+}
+
+.background-images {
+    position: unset;
+    z-index: -1;
+}
+
+.logo {
+    font-family: 'Play';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 74px;
+    text-align: center;
+    width: 260px;
+    margin: auto;
+}
+
+.sub-text {
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.content {
+    z-index: 1;
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
