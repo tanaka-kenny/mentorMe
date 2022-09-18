@@ -9,6 +9,16 @@
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
 
+@font-face {
+    font-family: "Oxygen";
+    src: local("Oxygen"), url(./assets/fonts/oxygen/Oxygen-Regular.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "Play";
+    src: local("Play"), url(./assets/fonts/play/Play-Regular.ttf) format("truetype");
+}
+
 ion-content {
     --background: linear-gradient(180deg, #2155CD 0%, rgba(10, 161, 221, 0.82) 63.54%, rgba(121, 218, 232, 0.12) 100%);
 }
