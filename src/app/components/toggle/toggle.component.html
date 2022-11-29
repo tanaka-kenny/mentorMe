@@ -1,0 +1,6 @@
+<div  class="radio">
+  <ng-container *ngFor="let option of radioOptions">
+    <input type="radio" name="radio" [value]="option.value" [id]="option.value">
+    <label class="custom-radion-btn" [for]="option.value">{{ option.name }}</label>
+  </ng-container>
+</div>
