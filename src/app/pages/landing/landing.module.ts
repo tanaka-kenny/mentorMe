@@ -8,6 +8,7 @@ import { LandingPageRoutingModule } from './landing-routing.module';
 
 import { LandingPage } from './landing.page';
 import { ToggleModule } from 'src/app/components/toggle/toggle.module';
+import { BackgroundModule } from 'src/app/components/background/background.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { ToggleModule } from 'src/app/components/toggle/toggle.module';
     FormsModule,
     IonicModule,
     LandingPageRoutingModule,
-    ToggleModule
+    ToggleModule,
+    BackgroundModule
   ],
   declarations: [LandingPage]
 })
