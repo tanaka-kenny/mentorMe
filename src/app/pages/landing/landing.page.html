@@ -16,5 +16,17 @@
       <p class="sub-text">A Value exchange 
         application</p>
     </ion-text>
+    <div class="buttons">
+      <div class="radio">
+        <app-toggle 
+          [radioOptions]="radioOptions">
+          </app-toggle>
+      </div>
+      
+      <ion-button
+        (click)="signUp()"
+        class="btn get-started-btn" 
+        expand="full">Get Started</ion-button>
+    </div>
   </div>
 </ion-content>
