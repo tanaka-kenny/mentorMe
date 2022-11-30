@@ -4,10 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { LandingPageRoutingModule } from './landing-routing.module';
+import { RegisterPageRoutingModule } from './register-routing.module';
 
-import { LandingPage } from './landing.page';
-import { ToggleModule } from 'src/app/components/toggle/toggle.module';
+import { RegisterPage } from './register.page';
 import { BackgroundModule } from 'src/app/components/background/background.module';
 
 @NgModule({
@@ -15,10 +14,11 @@ import { BackgroundModule } from 'src/app/components/background/background.modul
     CommonModule,
     FormsModule,
     IonicModule,
-    LandingPageRoutingModule,
-    ToggleModule,
+    RegisterPageRoutingModule,
     BackgroundModule
   ],
-  declarations: [LandingPage]
+  declarations: [
+    RegisterPage
+  ]
 })
-export class LandingPageModule {}
+export class RegisterPageModule {}

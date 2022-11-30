@@ -1,15 +1,5 @@
 <ion-content class="background" [fullscreen]="true">
-  <div class="background-images">
-    <div class="top-image">
-      <ion-img slot="fixed" src="assets/images/bubble1.svg"></ion-img>
-    </div>
-    <div class="center-image">
-      <ion-img slot="fixed" src="assets/images/bubble2.svg"></ion-img>
-    </div>
-    <div class="bottom-image">
-      <ion-img slot="fixed" src="assets/images/waves.svg"></ion-img>
-    </div>
-  </div>
+  <app-background></app-background>
   <div  class="content">
     <ion-text color="light">
       <h1 class="logo">Mentor Me</h1>
@@ -24,7 +14,7 @@
       </div>
       
       <ion-button
-        (click)="signUp()"
+        [routerLink]="['../register/']"
         class="btn get-started-btn" 
         expand="full">Get Started</ion-button>
     </div>
