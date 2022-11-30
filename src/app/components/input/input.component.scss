@@ -1,0 +1,20 @@
+.input-item {
+    margin-top: 40px;
+    font-size: 18px;
+    font-family: 'Oxygen';
+}
+
+.label {
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 700;
+    line-height: 23px;
+    color: #E8F9FD;
+}
+
+ion-input {
+    --background: transparent;
+    border-bottom: solid 1px #E8F9FD;
+    --color: #E8F9FD;
+    
+}
