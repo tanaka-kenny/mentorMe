@@ -6,6 +6,7 @@
       </ion-text>
     </ion-col>
   </ion-row>
+  <div class="body">
 
   <ion-row class="social-media-icons">
     <ion-col class="social-media-icon">
@@ -35,19 +36,15 @@
       <div class="hr-line"></div>
     </ion-row>
     
-    <div class="input-item">
-      <p class="label">Username: * </p>
-      <ion-input></ion-input>
-    </div>
-    <div class="input-item">
-      <p class="label">Password: * </p>
-      <ion-input type="password"></ion-input>
-    </div>
+
+    <app-input [label]="'Username: '"></app-input>
+    <app-input [label]="'Password: * '"[type]="'password'"></app-input>
 
     <ion-row class="sign-up-btn">
       <ion-button class="btn">
         Sign Up
       </ion-button>
     </ion-row>
+  </div>
   </div>
 </app-container>

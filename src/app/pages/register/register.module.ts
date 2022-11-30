@@ -11,6 +11,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { PersonalDetailsComponent } from './personal-details/personal-details.component';
 import { VerifyComponent } from './verify/verify.component';
 import { UploadIdComponent } from './upload-id/upload-id.component';
+import { InputModule } from 'src/app/components/input/input.module';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { UploadIdComponent } from './upload-id/upload-id.component';
     FormsModule,
     IonicModule,
     RegisterPageRoutingModule,
-    ContainerModule
+    ContainerModule,
+    InputModule
   ],
   declarations: [
     SignUpComponent,
