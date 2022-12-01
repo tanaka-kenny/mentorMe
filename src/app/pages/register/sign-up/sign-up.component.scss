@@ -1,14 +1,10 @@
-.content {
-    --padding-top: 30px;
-    --padding-end: 30px;
-    --padding-start: 30px;
-    box-sizing: border-box;
+.body {
+    position: relative;
+    top: 30px;
 }
-
 .header-text {
     margin-left: auto;
     margin-right: auto;
-    padding-top: 25px;
 }
 
 ion-text {
@@ -67,8 +63,6 @@ ion-icon {
     font-weight: 700;
     line-height: 23px;
     color: #E8F9FD;
-    // margin: 0;
-
 }
 
 ion-input {
