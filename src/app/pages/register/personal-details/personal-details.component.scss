@@ -36,6 +36,20 @@ ion-input {
     svg {
         margin-top: 30px;
     }
+
+    .image {
+        border-radius: 50%;
+        overflow: auto;
+        width: 165px;
+        height: 165px;
+
+        ion-img {
+            display: block;
+            width: inherit;
+            height: inherit;
+            object-fit: cover;
+        }
+    }
 }
 
 .next-btn {

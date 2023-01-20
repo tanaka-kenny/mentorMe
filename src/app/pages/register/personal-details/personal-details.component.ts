@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PhotoService, UserPhoto } from 'src/app/services/photo.service';
 
 @Component({
   selector: 'app-personal-details',
@@ -11,7 +12,8 @@ export class PersonalDetailsComponent implements OnInit {
   today: string;
   months: string[];
 
-  constructor() {
+  constructor(
+    public photoService: PhotoService) {
     this.isModalOpen = false;
     this.today = new Date().toISOString();
     this.months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
@@ -25,6 +27,10 @@ export class PersonalDetailsComponent implements OnInit {
 
   setDateOfBirth(date: any) {
     this.dateOfBirth = new Date(date.detail.value);
+  }
+
+  selectImage() {
+    this.photoService.selectPhoto();
   }
 
 }
