@@ -1,5 +1,7 @@
 {
   "name": "mentor-me",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }

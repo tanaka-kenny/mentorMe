@@ -6,12 +6,12 @@ import { IonicModule } from '@ionic/angular';
 
 import { RegisterPageRoutingModule } from './register-routing.module';
 
-import { ContainerModule } from 'src/app/components/container/container.module';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { PersonalDetailsComponent } from './personal-details/personal-details.component';
 import { VerifyComponent } from './verify/verify.component';
 import { UploadIdComponent } from './upload-id/upload-id.component';
 import { InputModule } from 'src/app/components/input/input.module';
+import { BackgroundModule } from 'src/app/components/background/background.module';
 
 @NgModule({
   imports: [
@@ -19,8 +19,8 @@ import { InputModule } from 'src/app/components/input/input.module';
     FormsModule,
     IonicModule,
     RegisterPageRoutingModule,
-    ContainerModule,
-    InputModule
+    InputModule,
+    BackgroundModule
   ],
   declarations: [
     SignUpComponent,
