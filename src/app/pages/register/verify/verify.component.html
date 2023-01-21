@@ -1,3 +1,29 @@
-<p>
-  verify works!
-</p>
+<ion-content [fullscreen]="true">
+  <app-background></app-background>
+  <div class="content">
+    <ion-row class="header-text-container">
+      <ion-text class="header-text">
+       In order for everyone to be safe within the app we need to verify all our mentees and mentors. We do this in 3 steps.
+      </ion-text>
+    </ion-row>
+
+    <div class="verification-steps">
+      <div class="step">
+        <ion-text class="sm-body-text">Identity document.</ion-text>
+      </div>
+      <div class="step">
+        <ion-text class="sm-body-text">Selfie</ion-text>
+      </div>
+      <div class="step">
+        <ion-text class="sm-body-text">OTP</ion-text>
+      </div>
+    </div>
+
+    <ion-row class="next-btn">
+        <ion-button
+          class="btn actions-btn">
+          Next
+        </ion-button>
+    </ion-row>
+  </div>
+</ion-content>
