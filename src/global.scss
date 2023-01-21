@@ -91,3 +91,22 @@ ion-modal#pick-date {
     --border-radius: 6px;
     --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
   }
+
+/* Global texts*/
+.lg-body-text {
+    font-family: 'Play';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    color: #E8F9FD;
+}
+
+.sm-body-text {
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 700;
+    line-height: 23px;
+    color: #E8F9FD;
+    font-size: 18px;
+}

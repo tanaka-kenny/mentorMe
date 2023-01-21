@@ -1,0 +1,40 @@
+.verification-steps {
+    margin-top: 30px;
+}
+
+.step {
+    padding: 52px;
+    padding-left: 6.5rem;
+    position: relative;
+}
+
+// circles
+.step::before {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+    border: 2px solid var(--ion-color-primary-contrast);
+    border-radius: 50%;
+    left: 7px;
+    bottom: 32px;
+}
+
+// vertical lines
+.step:not(:last-child) ion-text::before {
+    content: "";
+    position: absolute;
+    top: 93px;
+    left: 2.5rem;
+    width: 2px;
+    height: 50%;
+    background-color: var(--ion-color-primary-contrast);
+    z-index: -1;
+}
+
+.next-btn {
+    display: flex;
+    justify-content: center;
+}
+

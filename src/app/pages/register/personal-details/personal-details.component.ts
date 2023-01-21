@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PhotoService, UserPhoto } from 'src/app/services/photo.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class PersonalDetailsComponent implements OnInit {
   months: string[];
 
   constructor(
-    public photoService: PhotoService) {
+    public photoService: PhotoService,
+    private router: Router) {
     this.isModalOpen = false;
     this.today = new Date().toISOString();
     this.months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
@@ -31,6 +33,10 @@ export class PersonalDetailsComponent implements OnInit {
 
   selectImage() {
     this.photoService.selectPhoto();
+  }
+
+  nextScreen() {
+    this.router.navigate(['register','verify']);
   }
 
 }
