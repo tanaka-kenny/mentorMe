@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { OtpComponent } from './otp/otp.component';
 import { PersonalDetailsComponent } from './personal-details/personal-details.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { UploadIdComponent } from './upload-id/upload-id.component';
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'upload/id',
     component: UploadIdComponent
+  },
+  {
+    path: 'otp',
+    component: OtpComponent
   }
 ];
 

@@ -12,6 +12,7 @@ import { VerifyComponent } from './verify/verify.component';
 import { UploadIdComponent } from './upload-id/upload-id.component';
 import { InputModule } from 'src/app/components/input/input.module';
 import { BackgroundModule } from 'src/app/components/background/background.module';
+import { OtpComponent } from './otp/otp.component';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { BackgroundModule } from 'src/app/components/background/background.modul
     SignUpComponent,
     PersonalDetailsComponent,
     VerifyComponent,
-    UploadIdComponent
+    UploadIdComponent,
+    OtpComponent
   ]
 })
 export class RegisterPageModule {}
