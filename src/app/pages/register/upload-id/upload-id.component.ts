@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PhotoService } from 'src/app/services/photo.service';
 
 @Component({
   selector: 'app-upload-id',
@@ -7,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UploadIdComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public photoService: PhotoService) { }
 
   ngOnInit() {}
+
+  selectImage() {
+    this.photoService.selectPhoto();
+  }
 
 }
