@@ -1,3 +1,35 @@
-<p>
-  upload-id works!
-</p>
+<ion-content [fullscreen]="true">
+  <app-background></app-background>
+  <div class="content">
+    <ion-row class="header-text-container">
+      <ion-text class="header-text">
+        Please take photo of your ID, both front and back.
+      </ion-text>
+    </ion-row>
+
+    <div class="take-img">
+      <div class="frame">
+        <ion-img
+          *ngIf="photoService.uploadedPhotos.length > 0"
+          [src]="photoService.uploadedPhotos[0].webviewPath"></ion-img>
+      </div>
+    </div>
+
+    <div class="id-sides">
+      <ion-text class="sm-body-text">
+        Front
+      </ion-text>
+      <ion-text class="sm-body-text">
+        Back
+      </ion-text>
+    </div>
+
+    <ion-row class="next-btn">
+      <ion-button
+        (click)="selectImage()"
+        class="btn actions-btn">
+        Next
+      </ion-button>
+    </ion-row>
+  </div>
+</ion-content>

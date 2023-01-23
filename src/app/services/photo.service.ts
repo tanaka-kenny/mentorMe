@@ -18,7 +18,7 @@ export class PhotoService {
   async selectPhoto() {
     const selectedPhoto = await Camera.getPhoto({
       resultType: CameraResultType.Uri,
-      source: CameraSource.Prompt,
+      source: CameraSource.Camera,
       quality: 100
     });
 
