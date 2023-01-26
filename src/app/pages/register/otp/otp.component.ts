@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IonInput } from '@ionic/angular';
 
 @Component({
   selector: 'app-otp',
@@ -17,5 +18,15 @@ export class OtpComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  setInputFocus(event: KeyboardEvent, previous: IonInput, next: IonInput) {
+    if ((event.key >= '0' && event.key <= '9') && next !== null) {
+      next.setFocus();
+    }
+
+    if (event.key === 'Backspace' && previous !== null) {
+      previous.setFocus();
+    }
+  }
 
 }
