@@ -1,0 +1,51 @@
+.input-item {
+    margin-top: 130px;
+    font-size: 18px;
+    font-family: 'Oxygen';
+
+    .otp {
+        display: flex;
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+    
+        ion-input {
+            --background: transparent;
+            border-bottom: solid 1px #E8F9FD;
+            --color: #E8F9FD;
+            --padding-top  : unset;
+            text-align: center;
+        }
+    
+        ion-input:not(:last-child) {
+            margin-right: .5rem;
+        }
+    }
+
+    .resend-link {
+        margin-top: 1.5rem;
+        display: inline-block;
+        color: #79DAE8;
+        text-decoration: underline;
+    }
+}
+
+.actions {
+    position: absolute;
+    bottom: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .disclaimer {
+        margin-top: 1.5rem;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .next-btn {
+        margin-top: 1rem;
+    }
+}
+

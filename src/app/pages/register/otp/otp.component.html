@@ -1,0 +1,60 @@
+<ion-content [fullscreen]="true">
+  <app-background></app-background>
+  <div class="content">
+    <ng-container *ngIf="!otpSend; else enterOtp">
+      <ion-row class="header-text-container">
+        <ion-text class="header-text">Enter your mobile number.</ion-text>
+      </ion-row>
+      <app-input 
+        [label]="'Phone number: *'"
+        [type]="'number'"></app-input>
+    </ng-container>
+
+    <ng-template #enterOtp>
+      <ion-row class="header-text-container">
+        <ion-text class="header-text">
+            Enter the 4 digit code sent to you at 
+            <br> 
+            <span class="sm-body-text">072 847 3546</span>
+          </ion-text>
+      </ion-row>
+  
+      <div class="input-item">
+        <div class="otp">
+          <ion-input 
+            [type]="'number'"
+             #first 
+            (keyup)="setInputFocus($event,null, second)"></ion-input>
+          <ion-input 
+            [type]="'number'"
+            #second 
+            (keyup)="setInputFocus($event, first, third)"></ion-input>
+          <ion-input 
+            [type]="'number'" 
+            #third 
+            (keyup)="setInputFocus($event, second, fourth)"></ion-input>
+          <ion-input 
+            [type]="'number'" 
+            #fourth 
+            (keyup)="setInputFocus($event, third, null)"></ion-input>
+        </div>
+        <ion-text class="sm-body-text resend-link">Resend Code</ion-text>
+      </div>
+    </ng-template>
+    
+    <div class="actions">
+        <ion-text class="sm-body-text disclaimer">
+          By continuing you will recieve an sms to validate your number.
+        </ion-text>
+
+      <ion-row class="next-btn">
+        <ion-button
+          class="btn actions-btn">
+          Next
+        </ion-button>
+      </ion-row>
+    </div>
+
+
+  </div>
+</ion-content>
