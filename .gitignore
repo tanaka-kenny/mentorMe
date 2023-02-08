@@ -12,11 +12,12 @@
 Thumbs.db
 UserInterfaceState.xcuserstate
 $RECYCLE.BIN/
-enviroments.*
+environments/
 
 *.log
 log.txt
 npm-debug.log*
+
 
 /.angular
 /.idea
