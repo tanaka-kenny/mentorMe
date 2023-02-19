@@ -8,7 +8,9 @@ import {
   createUserWithEmailAndPassword,
   FacebookAuthProvider,
   getRedirectResult,
-  User } from '@angular/fire/auth';
+  User
+ } from '@angular/fire/auth';
+import { AlertService } from './alert.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,20 +18,18 @@ import {
 export class AuthorizationService {
   public user: User;
 
-  constructor(private auth: Auth) { }
+  constructor(
+    private auth: Auth,
+    private alertService: AlertService) { }
 
   get activeUser() {
     return this.user;
   }
 
   async loginWithGoogle() {
-    try {
       signInWithRedirect(this.auth, new GoogleAuthProvider());
       const result = await getRedirectResult(this.auth);
       this.user = result.user;
-    } catch (error) {
-      // Handle account-exists-with-different-credential Errors
-    }
   }
 
   async registerWithEmailAndPassword(email: string, password: string) {
@@ -38,7 +38,9 @@ export class AuthorizationService {
       this.user = result.user;
       return this.user;
     } catch (error) {
-      // respond to error codes with alert service
+     if (error.code === 'auth/email-already-in-use') {
+      this.alertService.presentAlert('The email you entered is already is use!');
+     }
     }
   }
 
@@ -46,20 +48,15 @@ export class AuthorizationService {
     try {
       const result =  await signInWithEmailAndPassword(this.auth, email, password);
       this.user = result.user;
-    } catch(err) {
-      // respond to error codes with alert service
+    } catch(error) {
+      this.alertService.presentAlert('The login details you provided are invalid!');
     }
   }
 
   async loginWithFacebook() {
     signInWithRedirect(this.auth, new FacebookAuthProvider());
-    try {
-      const result = await getRedirectResult(this.auth);
-      this.user = result.user;
-    } catch (error) {
-      // Handle account-exists-with-different-credential Errors
-    }
-
+    const result = await getRedirectResult(this.auth);
+    this.user = result.user;
   }
 
   signOut() {
