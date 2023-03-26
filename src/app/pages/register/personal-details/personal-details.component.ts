@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PhotoService, UserPhoto } from 'src/app/services/photo.service';
 
@@ -8,6 +9,7 @@ import { PhotoService, UserPhoto } from 'src/app/services/photo.service';
   styleUrls: ['./personal-details.component.scss'],
 })
 export class PersonalDetailsComponent implements OnInit {
+  formGroup: FormGroup;
   isModalOpen: boolean;
   dateOfBirth: Date;
   today: string;
@@ -19,6 +21,8 @@ export class PersonalDetailsComponent implements OnInit {
     this.isModalOpen = false;
     this.today = new Date().toISOString();
     this.months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+
+    this.formGroup = this.createForm();
   }
 
   ngOnInit() {}
@@ -37,6 +41,19 @@ export class PersonalDetailsComponent implements OnInit {
 
   nextScreen() {
     this.router.navigate(['register','verify']);
+  }
+
+  createForm() {
+    return new FormGroup({
+      name: new FormControl('', Validators.required),
+      surname: new FormControl('', Validators.required),
+      dateOfBirth: new FormGroup({
+        day: new FormControl('', Validators.required),
+        month: new FormControl('', Validators.required),
+        year: new FormControl('', Validators.required)
+      }),
+      profilePhoto: new FormControl(''),
+    });
   }
 
 }
