@@ -70,7 +70,7 @@ export class AuthorizationService {
     try {
       const { user } = await getRedirectResult(this.auth);
 
-      if (this.isAnExistingUser(user.email)) {
+      if (!this.isAnExistingUser(user.email)) {
         await setDoc(doc(this.firestore, 'users', user.uid), {
           uid: user.uid
         });
