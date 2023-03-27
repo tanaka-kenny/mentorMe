@@ -25,7 +25,7 @@ import { provideStorage, getStorage, connectStorageEmulator } from '@angular/fir
     AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
 		provideAuth(() => {
-      connectAuthEmulator(getAuth(), 'http://localhost:9099');
+      connectAuthEmulator(getAuth(), 'http://localhost:9099', { disableWarnings: true });
       return getAuth();
     }),
 		provideFirestore(() => {
