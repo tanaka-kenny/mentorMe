@@ -9,7 +9,8 @@ import {
   FacebookAuthProvider,
   getRedirectResult,
   User,
-  fetchSignInMethodsForEmail
+  fetchSignInMethodsForEmail,
+  authState
  } from '@angular/fire/auth';
 import { doc, Firestore, setDoc } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
@@ -20,7 +21,6 @@ import { AlertService } from './alert.service';
   providedIn: 'root'
 })
 export class AuthorizationService {
-  public user: Subject<User>;
 
   constructor(
     private auth: Auth,
@@ -31,7 +31,7 @@ export class AuthorizationService {
      }
 
   get activeUser() {
-    return this.user;
+    return authState(this.auth);
   }
 
   async loginWithGoogle() {
@@ -45,7 +45,6 @@ export class AuthorizationService {
   async registerWithEmailAndPassword(email: string, password: string) {
     try {
       const result = await createUserWithEmailAndPassword(this.auth, email, password);
-      this.user.next(result.user);
     } catch (error) {
      if (error.code === 'auth/email-already-in-use') {
       this.alertService.presentAlert('The email you entered is already is use!');
@@ -56,7 +55,6 @@ export class AuthorizationService {
   async signInWithEmailAndPassword(email: string, password: string) {
     try {
       const result =  await signInWithEmailAndPassword(this.auth, email, password);
-      this.user.next(result.user);
     } catch(error) {
       this.alertService.presentAlert('The login details you provided are invalid!');
     }
