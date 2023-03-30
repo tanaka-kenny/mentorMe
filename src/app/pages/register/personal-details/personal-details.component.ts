@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthorizationService } from 'src/app/services/authorization.service';
 import { FirestoreService } from 'src/app/services/firestore.service';
-import { PhotoService, UserPhoto } from 'src/app/services/photo.service';
+import { PhotoService } from 'src/app/services/photo.service';
 
 @Component({
   selector: 'app-personal-details',
@@ -15,11 +16,13 @@ export class PersonalDetailsComponent implements OnInit {
   dateOfBirth: Date;
   today: string;
   months: string[];
+  uid: string;
 
   constructor(
     public photoService: PhotoService,
     private router: Router,
-    private firestoreService: FirestoreService) {
+    private firestoreService: FirestoreService,
+    private authorizationService: AuthorizationService) {
     this.isModalOpen = false;
     this.today = new Date().toISOString();
     this.months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
@@ -27,7 +30,11 @@ export class PersonalDetailsComponent implements OnInit {
     this.formGroup = this.createForm();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.authorizationService
+      .activeUser
+        .subscribe(user => this.uid = user.uid);
+  }
 
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
@@ -65,7 +72,16 @@ export class PersonalDetailsComponent implements OnInit {
       this.formGroup.get('profilePhoto').setValue(imagePath);
     }
 
-    await this.firestoreService.addUser(this.formGroup.value);
+    await this.firestoreService.addUser({
+      ...this.formGroup.value,
+      verificationStatus: {
+        uploadedFrontOfId: false,
+        uploadedSelfie: false,
+        uploadedBackOfId: false,
+        otpVerified: false
+      },
+      uid: this.uid
+    });
   }
 
 }

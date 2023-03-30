@@ -1,20 +1,22 @@
 import { Injectable } from '@angular/core';
 import { User } from '@angular/fire/auth';
-import { doc, Firestore, setDoc } from '@angular/fire/firestore';
-import { AuthorizationService } from './authorization.service';
+import { doc, docData, Firestore, setDoc } from '@angular/fire/firestore';
+import { CustomizedUser } from '../models/customized-user.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirestoreService {
-  private uid: string;
-  constructor(
-    private firestore: Firestore,
-    private authService: AuthorizationService) {
-      this.authService.activeUser.subscribe((user: User) =>  this.uid = user.uid);
-    }
 
-  async addUser(user: User) {
-    await setDoc(doc(this.firestore, 'users', this.uid), user);
+  constructor(
+    private firestore: Firestore) {}
+
+  async addUser(user: CustomizedUser) {
+    await setDoc(doc(this.firestore, 'users', user.uid), user);
+  }
+
+  getUser(uid: string) {
+    const userRef = doc(this.firestore, 'users', uid);
+    return docData(userRef);
   }
 }
