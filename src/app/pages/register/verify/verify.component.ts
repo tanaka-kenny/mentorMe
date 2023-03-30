@@ -5,6 +5,7 @@ import { AuthorizationService } from 'src/app/services/authorization.service';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { PhotoService } from 'src/app/services/photo.service';
 import { switchMap } from 'rxjs/operators';
+import { StepsChecklist } from 'src/app/models/steps-checklist.model';
 
 @Component({
   selector: 'app-verify',
@@ -13,7 +14,7 @@ import { switchMap } from 'rxjs/operators';
 })
 export class VerifyComponent implements OnInit {
   user: CustomizedUser;
-
+  steps: Array<StepsChecklist>;
   constructor(
     private router: Router,
     private authorizationService: AuthorizationService,
@@ -23,7 +24,22 @@ export class VerifyComponent implements OnInit {
   ngOnInit() {
     this.authorizationService.activeUser.pipe(
       switchMap(user => this.firestoreService.getUser(user.uid)))
-        .subscribe(user => this.user = user as CustomizedUser);
+        .subscribe(user => {
+          this.user = user as CustomizedUser;
+          this.steps = [
+            {
+              step: 'Identity document.',
+              isComplete: this.user.verificationStatus.uploadedFrontOfId && this.user.verificationStatus.uploadedBackOfId},
+            {
+              step: 'Selfie',
+              isComplete: this.user.verificationStatus.uploadedSelfie
+            },
+            {
+              step: 'OTP',
+              isComplete: this.user.verificationStatus.otpVerified
+            }
+          ];
+        });
   }
 
   async chooseUploadOption() {
@@ -32,7 +48,7 @@ export class VerifyComponent implements OnInit {
     } else if(!this.user.verificationStatus.uploadedBackOfId) {
       this.router.navigate(['register', 'upload','id']);
     } else if(!this.user.verificationStatus.uploadedSelfie) {
-      this.uploadSelfie();
+      await this.uploadSelfie();
     } else if(!this.user.verificationStatus.otpVerified) {
       this.router.navigate(['register','otp']);
     }
