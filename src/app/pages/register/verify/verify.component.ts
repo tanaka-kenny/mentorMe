@@ -22,24 +22,7 @@ export class VerifyComponent implements OnInit {
     private photoService: PhotoService) {}
 
   ngOnInit() {
-    this.authorizationService.activeUser.pipe(
-      switchMap(user => this.firestoreService.getUser(user.uid)))
-        .subscribe(user => {
-          this.user = user as CustomizedUser;
-          this.steps = [
-            {
-              step: 'Identity document.',
-              isComplete: this.user.verificationStatus.uploadedFrontOfId && this.user.verificationStatus.uploadedBackOfId},
-            {
-              step: 'Selfie',
-              isComplete: this.user.verificationStatus.uploadedSelfie
-            },
-            {
-              step: 'OTP',
-              isComplete: this.user.verificationStatus.otpVerified
-            }
-          ];
-        });
+    this.initalizeUser();
   }
 
   async chooseUploadOption() {
@@ -62,6 +45,25 @@ export class VerifyComponent implements OnInit {
     this.user.verificationStatus.uploadedSelfie = true;
   }
 
-
+  initalizeUser() {
+    this.authorizationService.activeUser.pipe(
+      switchMap(user => this.firestoreService.getUser(user.uid)))
+        .subscribe(user => {
+          this.user = user as CustomizedUser;
+          this.steps = [
+            {
+              step: 'Identity document.',
+              isComplete: this.user.verificationStatus.uploadedFrontOfId && this.user.verificationStatus.uploadedBackOfId},
+            {
+              step: 'Selfie',
+              isComplete: this.user.verificationStatus.uploadedSelfie
+            },
+            {
+              step: 'OTP',
+              isComplete: this.user.verificationStatus.otpVerified
+            }
+          ];
+        });
+  }
 
 }
