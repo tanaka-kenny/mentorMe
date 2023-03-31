@@ -13,6 +13,7 @@ import { UploadIdComponent } from './upload-id/upload-id.component';
 import { InputModule } from 'src/app/components/input/input.module';
 import { BackgroundModule } from 'src/app/components/background/background.module';
 import { OtpComponent } from './otp/otp.component';
+import { StepsChecklistModule } from 'src/app/components/steps-checklist/steps-checklist.module';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { OtpComponent } from './otp/otp.component';
     RegisterPageRoutingModule,
     InputModule,
     BackgroundModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StepsChecklistModule
   ],
   declarations: [
     SignUpComponent,

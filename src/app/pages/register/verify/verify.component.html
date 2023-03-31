@@ -9,39 +9,7 @@
     </ion-row>
 
     <div class="verification-steps" *ngIf="user">
-      <div class="step">
-        <svg *ngIf="user.verificationStatus.uploadedFrontOfId && user.verificationStatus.uploadedBackOfId"
-          class="check-mark" width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M29.0001 13L15.0001 27L9 21" stroke="#A6E6A9" stroke-width="1.5" stroke-linecap="round"
-            stroke-linejoin="round" />
-          <path
-            d="M19 37C28.9412 37 37 28.9412 37 19C37 9.05888 28.9412 1 19 1C9.05888 1 1 9.05888 1 19C1 28.9412 9.05888 37 19 37Z"
-            stroke="#A6E6A9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-        <ion-text class="sm-body-text">Identity document.</ion-text>
-      </div>
-      <div class="step">
-        <svg *ngIf="user.verificationStatus.uploadedSelfie" class="check-mark" width="38" height="38"
-          viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M29.0001 13L15.0001 27L9 21" stroke="#A6E6A9" stroke-width="1.5" stroke-linecap="round"
-            stroke-linejoin="round" />
-          <path
-            d="M19 37C28.9412 37 37 28.9412 37 19C37 9.05888 28.9412 1 19 1C9.05888 1 1 9.05888 1 19C1 28.9412 9.05888 37 19 37Z"
-            stroke="#A6E6A9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-        <ion-text class="sm-body-text">Selfie</ion-text>
-      </div>
-      <div class="step">
-        <svg *ngIf="user.verificationStatus.otpVerified" class="check-mark" width="38" height="38" viewBox="0 0 38 38"
-          fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M29.0001 13L15.0001 27L9 21" stroke="#A6E6A9" stroke-width="1.5" stroke-linecap="round"
-            stroke-linejoin="round" />
-          <path
-            d="M19 37C28.9412 37 37 28.9412 37 19C37 9.05888 28.9412 1 19 1C9.05888 1 1 9.05888 1 19C1 28.9412 9.05888 37 19 37Z"
-            stroke="#A6E6A9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-        <ion-text class="sm-body-text">OTP</ion-text>
-      </div>
+      <app-steps-checklist [steps]="steps"></app-steps-checklist>
     </div>
 
     <ion-row class="next-btn">
