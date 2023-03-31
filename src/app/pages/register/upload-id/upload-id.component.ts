@@ -21,9 +21,7 @@ export class UploadIdComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    this.authorizationService.activeUser.pipe(
-      switchMap(user => this.firestoreService.getUser(user.uid)))
-        .subscribe(user => this.user = user as CustomizedUser);
+    this.getUserInformation();
   }
 
   async selectImage() {
@@ -40,6 +38,12 @@ export class UploadIdComponent implements OnInit {
     }
 
     await this.firestoreService.addUser(this.user);
+  }
+
+  getUserInformation() {
+    this.authorizationService.activeUser.pipe(
+      switchMap(user => this.firestoreService.getUser(user.uid)))
+        .subscribe(user => this.user = user as CustomizedUser);
   }
 
 }
