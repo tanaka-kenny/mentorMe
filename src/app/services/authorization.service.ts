@@ -8,13 +8,9 @@ import {
   createUserWithEmailAndPassword,
   FacebookAuthProvider,
   getRedirectResult,
-  User,
-  fetchSignInMethodsForEmail,
   authState
  } from '@angular/fire/auth';
-import { doc, Firestore, setDoc } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
 import { AlertService } from './alert.service';
 
 @Injectable({
@@ -24,7 +20,6 @@ export class AuthorizationService {
 
   constructor(
     private auth: Auth,
-    private firestore: Firestore,
     private alertService: AlertService,
     private router: Router) {
       this.handleRedirectResult();
@@ -44,7 +39,7 @@ export class AuthorizationService {
 
   async registerWithEmailAndPassword(email: string, password: string) {
     try {
-      const result = await createUserWithEmailAndPassword(this.auth, email, password);
+      await createUserWithEmailAndPassword(this.auth, email, password);
     } catch (error) {
      if (error.code === 'auth/email-already-in-use') {
       this.alertService.presentAlert('The email you entered is already is use!');
@@ -54,7 +49,7 @@ export class AuthorizationService {
 
   async signInWithEmailAndPassword(email: string, password: string) {
     try {
-      const result =  await signInWithEmailAndPassword(this.auth, email, password);
+      await signInWithEmailAndPassword(this.auth, email, password);
     } catch(error) {
       this.alertService.presentAlert('The login details you provided are invalid!');
     }
@@ -66,22 +61,14 @@ export class AuthorizationService {
 
   private async handleRedirectResult() {
     try {
-      const { user } = await getRedirectResult(this.auth);
-
-      if (!this.isAnExistingUser(user.email)) {
-        await setDoc(doc(this.firestore, 'users', user.uid), {
-          uid: user.uid
-        });
-      }
+      const res = await getRedirectResult(this.auth);
+      if (!res) { throw new Error('No redirect result'); }
 
       this.router.navigate(['register', 'personal', 'details']);
-    } catch(error) {}
-  }
+    } catch(error) {
+      console.log(error.message);
 
-  private async isAnExistingUser(email: string) {
-    const signInMethods = await fetchSignInMethodsForEmail(this.auth, email);
-
-    return signInMethods.length > 0;
+    }
   }
 }
 
