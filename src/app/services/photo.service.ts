@@ -10,7 +10,7 @@ import { AuthorizationService } from './authorization.service';
   providedIn: 'root'
 })
 export class PhotoService {
-  private photos: UserPhoto[] = [];
+   photos: UserPhoto[] = [];
   private uid: string;
   private selectedPhoto: Photo;
 
@@ -45,6 +45,7 @@ export class PhotoService {
     const storageRef = ref(this.storage, `${this.uid}/${imageName}`);
 
     await uploadBytes(storageRef, blob);
+    this.photos = [];
 
     return storageRef.fullPath;
   }
