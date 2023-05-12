@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivateChild, CanLoad, Route, Router, RouterStateSnapshot, UrlSegment, UrlTree } from '@angular/router';
-import { Observable, of } from 'rxjs';
+import { CanActivateChild, CanLoad, Router, } from '@angular/router';
+import {  of } from 'rxjs';
 import { AuthorizationService } from '../services/authorization.service';
 import { switchMap } from 'rxjs/operators';
 
@@ -25,11 +25,11 @@ export class AuthGuard implements CanLoad, CanActivateChild {
     return this.authService.activeUser
       .pipe(switchMap(user => {
         if (user) {
-          return of(true)
+          return of(true);
         } else {
           this.router.navigate(['landing']);
           return of(false);
         }
-      }))
+      }));
   }
 }
