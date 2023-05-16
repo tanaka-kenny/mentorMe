@@ -8,6 +8,7 @@ import { LoginPageRoutingModule } from './login-routing.module';
 
 import { InputModule } from 'src/app/components/input/input.module';
 import { LoginPage } from './login.page';
+import { BackgroundModule } from 'src/app/components/background/background.module';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { LoginPage } from './login.page';
     IonicModule,
     LoginPageRoutingModule,
     ReactiveFormsModule,
-    InputModule
+    InputModule,
+    BackgroundModule
   ],
   declarations: [LoginPage]
 })
