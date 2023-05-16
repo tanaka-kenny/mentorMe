@@ -22,6 +22,10 @@ export class SignUpComponent {
     return this.formGroup.get('password').value as string;
   }
 
+  get confirmPassword() {
+    return this.formGroup.get('confirmPassword').value as string;
+  }
+
   async createUserWithEmailAndPassword() {
     await this.authService
       .registerWithEmailAndPassword(
@@ -48,6 +52,9 @@ export class SignUpComponent {
         Validators.email
       ]),
       password: new FormControl('', [
+        Validators.required
+      ]),
+      confirmPassword: new FormControl('', [
         Validators.required
       ])
     });

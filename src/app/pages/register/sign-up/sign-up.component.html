@@ -47,6 +47,8 @@
         <app-input [formGroup]="formGroup" [controlName]="'email'" [label]="'Username: '"></app-input>
         <app-input [formGroup]="formGroup" [controlName]="'password'" [label]="'Password: * '"
           [type]="'password'"></app-input>
+        <app-input [formGroup]="formGroup" [controlName]="'confirmPassword'" [label]="'Confirm Password: * '"
+          [type]="'password'"></app-input>
 
         <ion-row class="sign-up-btn">
           <ion-button (click)="createUserWithEmailAndPassword()" [disabled]="!formGroup.valid" class="btn actions-btn">
