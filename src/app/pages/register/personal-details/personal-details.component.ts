@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthorizationService } from 'src/app/services/authorization.service';
-import { FirestoreService } from 'src/app/services/firestore.service';
 import { PhotoService } from 'src/app/services/photo.service';
 
 @Component({
@@ -21,7 +20,6 @@ export class PersonalDetailsComponent implements OnInit {
   constructor(
     public photoService: PhotoService,
     private router: Router,
-    private firestoreService: FirestoreService,
     private authorizationService: AuthorizationService) {
     this.isModalOpen = false;
     this.today = new Date().toISOString();
@@ -72,16 +70,7 @@ export class PersonalDetailsComponent implements OnInit {
       this.formGroup.get('profilePhoto').setValue(imagePath);
     }
 
-    await this.firestoreService.addUser({
-      ...this.formGroup.value,
-      verificationStatus: {
-        uploadedFrontOfId: false,
-        uploadedSelfie: false,
-        uploadedBackOfId: false,
-        otpVerified: false
-      },
-      uid: this.uid
-    });
+    // TODO: call service to save user to db
   }
 
 }
