@@ -6,7 +6,6 @@ import { IonicModule } from '@ionic/angular';
 
 import { RegisterPageRoutingModule } from './register-routing.module';
 
-import { SignUpComponent } from './sign-up/sign-up.component';
 import { PersonalDetailsComponent } from './personal-details/personal-details.component';
 import { VerifyComponent } from './verify/verify.component';
 import { UploadIdComponent } from './upload-id/upload-id.component';
@@ -27,7 +26,6 @@ import { StepsChecklistModule } from 'src/app/components/steps-checklist/steps-c
     StepsChecklistModule
   ],
   declarations: [
-    SignUpComponent,
     PersonalDetailsComponent,
     VerifyComponent,
     UploadIdComponent,
