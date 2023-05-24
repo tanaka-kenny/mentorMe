@@ -28,3 +28,11 @@ export interface VerificationStatus {
     otpVerified: boolean;
 }
 
+export const IT_FIELDS: string[] = [
+    'Software Development',
+    'Business Intelligence',
+    'Data Analyst',
+    'Designer',
+    'Quality Engineer'
+];
+
