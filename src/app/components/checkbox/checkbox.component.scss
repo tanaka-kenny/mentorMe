@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+ion-checkbox {
+    --size: 44px;
+    --background-checked: transparent;
+    --background: transparent;
+    --checkmark-color: #A6E6A9;
+    --checkmark-width: 1px;
+}
+
+ion-checkbox::part(container) {
+    border-radius: 0;
+    border: 1px solid #E8F9FD;
+}
+
+.label {
+    margin-left: 2rem;
+}

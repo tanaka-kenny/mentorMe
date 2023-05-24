@@ -1,0 +1,7 @@
+<div *ngFor="let option of options">
+  <div class="container">
+    <ion-checkbox (ionChange)="selectValue($event)" [value]="option"></ion-checkbox>
+    <ion-label class="sm-body-text label">{{ option }}</ion-label>
+  </div>
+
+</div>
