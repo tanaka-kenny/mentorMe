@@ -45,6 +45,7 @@ export class PhotoService {
     const storageRef = ref(this.storage, `${this.uid}/${imageName}`);
 
     await uploadBytes(storageRef, blob);
+    this.photos = [];
 
     return storageRef.fullPath;
   }
