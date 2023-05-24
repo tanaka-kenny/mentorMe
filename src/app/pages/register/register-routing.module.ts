@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { OtpComponent } from './otp/otp.component';
 import { PersonalDetailsComponent } from './personal-details/personal-details.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
 import { UploadIdComponent } from './upload-id/upload-id.component';
 import { VerifyComponent } from './verify/verify.component';
 
@@ -10,12 +9,8 @@ import { VerifyComponent } from './verify/verify.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'sign/up',
+    redirectTo: 'personal/details',
     pathMatch: 'full'
-  },
-  {
-    path: 'sign/up',
-    component: SignUpComponent
   },
   {
     path: 'personal/details',

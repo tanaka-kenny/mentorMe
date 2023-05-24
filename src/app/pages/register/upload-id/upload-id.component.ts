@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { CustomizedUser } from 'src/app/models/customized-user.model';
 import { AuthorizationService } from 'src/app/services/authorization.service';
-import { FirestoreService } from 'src/app/services/firestore.service';
 import { PhotoService } from 'src/app/services/photo.service';
 
 @Component({
@@ -17,7 +16,6 @@ export class UploadIdComponent implements OnInit {
   constructor(
     public photoService: PhotoService,
     private authorizationService: AuthorizationService,
-    private firestoreService: FirestoreService,
     private router: Router) { }
 
   ngOnInit() {
@@ -37,13 +35,12 @@ export class UploadIdComponent implements OnInit {
       this.router.navigate(['register', 'verify']);
     }
 
-    await this.firestoreService.addUser(this.user);
+    // TODO: call service to upload user in db
   }
 
   getUserInformation() {
-    this.authorizationService.activeUser.pipe(
-      switchMap(user => this.firestoreService.getUser(user.uid)))
-        .subscribe(user => this.user = user as CustomizedUser);
+    // TODO: call service to  auth service to get user uid,
+    // then call a service to get user information based on uid
   }
 
 }

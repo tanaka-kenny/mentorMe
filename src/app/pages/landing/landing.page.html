@@ -1,22 +1,18 @@
 <ion-content class="background" [fullscreen]="true">
   <app-background></app-background>
-  <div  class="content">
+  <div class="content">
     <ion-text color="light">
       <h1 class="logo">Mentor Me</h1>
-      <p class="sub-text">A Value exchange 
+      <p class="sub-text">A Value exchange
         application</p>
     </ion-text>
     <div class="buttons">
       <div class="radio">
-        <app-toggle 
-          [radioOptions]="radioOptions">
-          </app-toggle>
+        <app-toggle [radioOptions]="radioOptions">
+        </app-toggle>
       </div>
-      
-      <ion-button
-        [routerLink]="['../register/']"
-        class="btn get-started-btn" 
-        expand="full">Get Started</ion-button>
+
+      <ion-button (click)="authenticateUser()" class="btn get-started-btn" expand="full">Get Started</ion-button>
     </div>
   </div>
 </ion-content>

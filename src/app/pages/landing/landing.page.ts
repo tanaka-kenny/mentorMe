@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { RadioOptions } from 'src/app/components/toggle/toggle.component';
 
 @Component({
@@ -9,7 +10,7 @@ import { RadioOptions } from 'src/app/components/toggle/toggle.component';
 export class LandingPage implements OnInit {
   radioOptions: RadioOptions[];
 
-  constructor() {
+  constructor(private router: Router) {
     this.radioOptions  = [
       { name:'Mentee', value: 'mentee' },
       { name: 'Mentor', value: 'mentor' }
@@ -19,6 +20,8 @@ export class LandingPage implements OnInit {
   ngOnInit() {
   }
 
-  signUp() {}
+  authenticateUser() {
+    this.router.navigate(['landing', 'sign', 'up']);
+  }
 
 }
