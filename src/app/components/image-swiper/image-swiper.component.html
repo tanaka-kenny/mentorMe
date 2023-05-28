@@ -1,0 +1,9 @@
+<swiper-container class="mySwiper" slides-per-view="2" space-between="30" centered-slides="true">
+  <swiper-slide *ngFor="let user of users">
+    <ion-img [src]="user.image"></ion-img>
+    <div class="details">
+      <ion-text class="name">{{ user.name }}</ion-text>
+      <ion-text class="profession">{{ user.profession }}</ion-text>
+    </div>
+  </swiper-slide>
+</swiper-container>
