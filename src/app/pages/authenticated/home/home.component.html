@@ -1,19 +1,58 @@
-<ion-split-pane contentId="main-content">
-  <ion-menu contentId="main-content" type="overlay">
-    <ion-content>
-      <!-- add menu items here -->
-    </ion-content>
-  </ion-menu>
-  <ion-header [translucent]="true">
+<ion-menu contentId="main-section">
+  <ion-content class="ion-padding">
+    <app-profile-section [imgSrc]="'../../../../assets/images/mandela-sm.svg'"
+      [username]="'Nelson Mandela'"></app-profile-section>
+    <hr>
+    <ul lines="none">
+      <li>
+        <ion-text>Profile</ion-text>
+      </li>
+      <li>
+        <ion-text>History</ion-text>
+      </li>
+      <li>
+        <ion-text>Help</ion-text>
+      </li>
+    </ul>
+  </ion-content>
+</ion-menu>
+<div class="ion-page" id="main-section">
+  <ion-header>
     <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-title>Mentor Me</ion-title>
+      <div class="header-section">
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-text class="header-text">Mentor Me</ion-text>
+      </div>
+
+
+      <ion-row class="welcome-user">
+        <ion-col>
+          <ion-img src="../../../../assets/images/mandela-sm.svg"
+            alt="The Wisconsin State Capitol building in Madison, WI at night"></ion-img>
+        </ion-col>
+        <ion-col size="9" class="greeting-text">
+          <ion-text class="greeting-msg">Good morning</ion-text>
+          <ion-text class="user-name">Nelson Mandela</ion-text>
+        </ion-col>
+      </ion-row>
+
+      <div class="notifications">
+        <app-notification></app-notification>
+      </div>
+
     </ion-toolbar>
   </ion-header>
-  
-  <ion-content [fullscreen]="true">
-    <!-- add content here -->
+  <ion-content class="main-section ion-padding">
+    <app-background></app-background>
+    <ion-text class="heading">My Mentors</ion-text>
+
+    <div class="mentors">
+      <ion-text class="no-mentors-to-show">You do not have any mentors yet</ion-text>
+    </div>
+
+    <ion-text class="view-mentors">View Mentors</ion-text>
+    <app-image-swiper [users]="availableMentors"></app-image-swiper>
   </ion-content>
-</ion-split-pane>
+</div>

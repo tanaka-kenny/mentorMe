@@ -1,22 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+import { register } from 'swiper/element/bundle';
 
+register();
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  public appPages = [
-    { title: 'Inbox', url: '/folder/Inbox', icon: 'mail' },
-    { title: 'Outbox', url: '/folder/Outbox', icon: 'paper-plane' },
-    { title: 'Favorites', url: '/folder/Favorites', icon: 'heart' },
-    { title: 'Archived', url: '/folder/Archived', icon: 'archive' },
-    { title: 'Trash', url: '/folder/Trash', icon: 'trash' },
-    { title: 'Spam', url: '/folder/Spam', icon: 'warning' },
-  ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
 
-  constructor() { }
+  availableMentors: { name: string; profession: string; image: string }[];
+
+  constructor() {
+    this.availableMentors = [
+      { name: 'Eric Van de vaart', profession: 'Backend Developer', image: '../../../../assets/images/mentor-img-1.png' },
+      { name: 'Pretty Hlatswayo', profession: 'Software Engineer', image: '../../../../assets/images/mentor-img-2.png' },
+      { name: 'Eric Van de vaart', profession: 'Backend Developer', image: '../../../../assets/images/mentor-img-1.png' },
+    ];
+  }
 
   ngOnInit() {}
 
