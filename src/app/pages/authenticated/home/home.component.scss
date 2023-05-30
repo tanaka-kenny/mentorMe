@@ -1,0 +1,147 @@
+ion-menu {
+    --background: #0AA1DD;
+
+    hr {
+        border: 1px solid #FFFFFF;
+        width: 90%;
+        height: 0;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+
+        li {
+            font-family: 'Play';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 28px;
+            color: #FFFFFF;
+            margin-bottom: 15px;
+        }
+    }
+
+}
+
+ion-toolbar {
+    height: 260px;
+    --background: rgba(232, 249, 253, 0.9);
+    position: absolute;
+}
+
+.header-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 1rem;
+
+    ion-buttons {
+        position: absolute;
+        left: 5%;
+    }
+
+    .header-text {
+        font-family: 'Play';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 28px;
+        text-align: center;
+        color: rgba(10, 161, 221, 0.82);
+    }
+}
+
+.welcome-user {
+    display: flex;
+    align-items: center;
+    margin-top: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+
+
+    .greeting-text {
+        height: 55px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        ion-text {
+            display: block;
+            font-family: 'Oxygen';
+            font-style: normal;
+            line-height: 18px;
+            color: #0AA1DD;
+        }
+
+        .greeting-msg {
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .user-name {
+            font-size: 28px;
+        }
+    }
+
+    ion-img {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+    }
+}
+
+.notifications {
+    margin-top: 1.5rem;
+}
+
+.main-section {
+
+    .heading {
+        margin-top: 270px;
+        margin-bottom: 15px;
+        display: block;
+        font-family: "Play";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 28px;
+        color: #E8F9FD;
+    }
+
+    .mentors {
+        height: 190px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .no-mentors-to-show {
+            display: block;
+            text-align: center;
+            font-family: 'Oxygen';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 23px;
+            color: #E8F9FD;
+        }
+    }
+
+    .view-mentors {
+        font-family: 'Play';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 28px;
+        color: #E8F9FD;
+        display: block;
+        margin-bottom: 15px;
+    }
+}

@@ -19,6 +19,11 @@
     src: local("Play"), url(./assets/fonts/play/Play-Regular.ttf) format("truetype");
 }
 
+@font-face {
+    font-family: "Nunito";
+    src: local("Nunito"), url(./assets/fonts/nunito/Nunito-VariableFont_wght.ttf) format("truetype");
+}
+
 ion-content {
     --background: linear-gradient(180deg, #2155CD 0%, rgba(10, 161, 221, 0.82) 63.54%, rgba(121, 218, 232, 0.12) 100%);
 }
@@ -47,6 +52,7 @@ ion-content {
     box-sizing: border-box;
     background: transparent;
 }
+
 /* Buttons*/
 .btn {
     font-family: 'Play';
@@ -90,7 +96,7 @@ ion-modal#pick-date {
     --height: fit-content;
     --border-radius: 6px;
     --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
-  }
+}
 
 /* Global texts*/
 .lg-body-text {
@@ -109,4 +115,15 @@ ion-modal#pick-date {
     line-height: 23px;
     color: #E8F9FD;
     font-size: 18px;
+}
+
+// swiper styling
+
+swiper-container {
+    width: 100%;
+    height: 155px;
+}
+
+swiper-slide {
+    width: 148px !important;
 }
