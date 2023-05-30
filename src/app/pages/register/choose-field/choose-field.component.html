@@ -1,0 +1,20 @@
+<ion-content [fullscreen]="true">
+  <app-background></app-background>
+  <div class="content">
+    <ion-row class="header-text-container">
+      <ion-text class="header-text">
+        Please select the fileds that you want mentorship in
+      </ion-text>
+    </ion-row>
+
+    <div class="item-list">
+      <app-checkbox [options]="options" (checkedItem)="onSelectField($event)"></app-checkbox>
+    </div>
+
+    <ion-row class="next-btn">
+      <ion-button (click)="submitOptions()" [disabled]="selectedITFields.length < 1" class="btn actions-btn">
+        Next
+      </ion-button>
+    </ion-row>
+  </div>
+</ion-content>

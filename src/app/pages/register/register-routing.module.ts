@@ -4,6 +4,7 @@ import { OtpComponent } from './otp/otp.component';
 import { PersonalDetailsComponent } from './personal-details/personal-details.component';
 import { UploadIdComponent } from './upload-id/upload-id.component';
 import { VerifyComponent } from './verify/verify.component';
+import { ChooseFieldComponent } from './choose-field/choose-field.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'otp',
     component: OtpComponent
+  },
+  {
+    path: 'choose/fields',
+    component: ChooseFieldComponent
   }
 ];
 

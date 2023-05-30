@@ -13,6 +13,8 @@ import { InputModule } from 'src/app/components/input/input.module';
 import { BackgroundModule } from 'src/app/components/background/background.module';
 import { OtpComponent } from './otp/otp.component';
 import { StepsChecklistModule } from 'src/app/components/steps-checklist/steps-checklist.module';
+import { ChooseFieldComponent } from './choose-field/choose-field.component';
+import { CheckboxModule } from 'src/app/components/checkbox/checkbox.module';
 
 @NgModule({
   imports: [
@@ -23,13 +25,15 @@ import { StepsChecklistModule } from 'src/app/components/steps-checklist/steps-c
     InputModule,
     BackgroundModule,
     ReactiveFormsModule,
-    StepsChecklistModule
+    StepsChecklistModule,
+    CheckboxModule
   ],
   declarations: [
     PersonalDetailsComponent,
     VerifyComponent,
     UploadIdComponent,
-    OtpComponent
+    OtpComponent,
+    ChooseFieldComponent
   ]
 })
 export class RegisterPageModule {}
