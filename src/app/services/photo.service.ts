@@ -10,7 +10,6 @@ import { AuthorizationService } from './authorization.service';
   providedIn: 'root'
 })
 export class PhotoService {
-  private photos: UserPhoto[] = [];
   private uid: string;
   private selectedPhoto: Photo;
 
@@ -22,20 +21,11 @@ export class PhotoService {
       });
     }
 
-  get uploadedPhotos() {
-    return this.photos;
-  }
-
   async selectPhoto() {
     this.selectedPhoto = await Camera.getPhoto({
       resultType: CameraResultType.Uri,
       source: CameraSource.Camera,
       quality: 100
-    });
-
-    this.photos.unshift({
-      filepath: this.selectedPhoto.path,
-      webviewPath: this.selectedPhoto.webPath
     });
 
     return this.readAsBase64();
@@ -47,7 +37,6 @@ export class PhotoService {
     const storageRef = ref(this.storage, `${this.uid}/${imageName}`);
 
     await uploadBytes(storageRef, blob);
-    this.photos = [];
 
     return storageRef.fullPath;
   }

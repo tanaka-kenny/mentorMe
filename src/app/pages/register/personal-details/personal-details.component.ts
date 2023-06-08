@@ -16,6 +16,7 @@ export class PersonalDetailsComponent implements OnInit {
   today: string;
   months: string[];
   uid: string;
+  imageInBase64: string;
 
   constructor(
     public photoService: PhotoService,
@@ -43,8 +44,8 @@ export class PersonalDetailsComponent implements OnInit {
   }
 
   async selectImage() {
-    const imageInBase64 = await this.photoService.selectPhoto();
-    this.formGroup.get('profilePhoto').setValue(imageInBase64);
+    this.imageInBase64 = await this.photoService.selectPhoto();
+    this.formGroup.get('profilePhoto').setValue(this.imageInBase64);
   }
 
   async nextScreen() {
@@ -66,10 +67,6 @@ export class PersonalDetailsComponent implements OnInit {
   }
 
   async saveUser() {
-    if(this.photoService.uploadedPhotos.length > 0) {
-      const imagePath = await this.photoService.uploadImage('profile-photo');
-      this.formGroup.get('profilePhoto').setValue(imagePath);
-    }
 
     // TODO: call service to save user to db
   }

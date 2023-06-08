@@ -12,6 +12,7 @@ import { PhotoService } from 'src/app/services/photo.service';
 })
 export class UploadIdComponent implements OnInit {
   user: CustomizedUser;
+  imageInBase64: string;
 
   constructor(
     public photoService: PhotoService,
@@ -23,7 +24,7 @@ export class UploadIdComponent implements OnInit {
   }
 
   async selectImage() {
-    await this.photoService.selectPhoto();
+    this.imageInBase64 = await this.photoService.selectPhoto();
 
     if (!this.user.verificationStatus.uploadedFrontOfId) {
       await this.photoService.uploadImage('idPhotoFront');
