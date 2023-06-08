@@ -31,16 +31,6 @@ export class PhotoService {
     return this.readAsBase64();
   }
 
-  async uploadImage(imageName: string) {
-    const response = await fetch(this.selectedPhoto.webPath);
-    const blob = await response.blob();
-    const storageRef = ref(this.storage, `${this.uid}/${imageName}`);
-
-    await uploadBytes(storageRef, blob);
-
-    return storageRef.fullPath;
-  }
-
   private async readAsBase64() {
     const response = await fetch(this.selectedPhoto.webPath);
     const blob = await response.blob();

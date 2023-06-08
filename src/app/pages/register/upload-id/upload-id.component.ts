@@ -26,16 +26,6 @@ export class UploadIdComponent implements OnInit {
   async selectImage() {
     this.imageInBase64 = await this.photoService.selectPhoto();
 
-    if (!this.user.verificationStatus.uploadedFrontOfId) {
-      await this.photoService.uploadImage('idPhotoFront');
-      this.user.verificationStatus.uploadedFrontOfId = true;
-      this.router.navigate(['register', 'verify']);
-    } else if (!this.user.verificationStatus.uploadedBackOfId) {
-      await this.photoService.uploadImage('idPhotoBack');
-      this.user.verificationStatus.uploadedBackOfId = true;
-      this.router.navigate(['register', 'verify']);
-    }
-
     // TODO: call service to upload user in db
   }
 
