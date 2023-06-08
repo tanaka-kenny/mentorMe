@@ -37,6 +37,8 @@ export class PhotoService {
       filepath: this.selectedPhoto.path,
       webviewPath: this.selectedPhoto.webPath
     });
+
+    return this.readAsBase64();
   }
 
   async uploadImage(imageName: string) {
@@ -49,6 +51,22 @@ export class PhotoService {
 
     return storageRef.fullPath;
   }
+
+  private async readAsBase64() {
+    const response = await fetch(this.selectedPhoto.webPath);
+    const blob = await response.blob();
+
+    return await this.convertBlobToBase64(blob) as string;
+  }
+
+  private convertBlobToBase64 = (blob: Blob) => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onerror = reject;
+    reader.onload = () => {
+        resolve(reader.result);
+    };
+    reader.readAsDataURL(blob);
+  });
 }
 
 export interface UserPhoto {

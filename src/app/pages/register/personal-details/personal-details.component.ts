@@ -42,8 +42,9 @@ export class PersonalDetailsComponent implements OnInit {
     this.dateOfBirth = new Date(date.detail.value);
   }
 
-  selectImage() {
-    this.photoService.selectPhoto();
+  async selectImage() {
+    const imageInBase64 = await this.photoService.selectPhoto();
+    this.formGroup.get('profilePhoto').setValue(imageInBase64);
   }
 
   async nextScreen() {
